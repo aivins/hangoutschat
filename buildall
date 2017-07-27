@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mkdir -p dist
+
+nativefier --name 'New Hangouts Chat' chat.google.com --platform osx --arch x64 --icon hangoutschat.icns build/macos
+&& cp build/macos/*.app dist/
+
+nativefier --name 'New Hangouts Chat' chat.google.com --platform linux --arch x64 --icon hangoutschat.png build/linux \
+&& cd build \
+&& tar -czf ../dist/hangouts_chat_linux_x64.tar.gz linux \
+&& cd ..
+
+nativefier --name 'New Hangouts Chat' chat.google.com --platform windows --arch x64 --icon hangoutschat.png build/windows \
+&& cd build \
+&& zip -r ../dist/hangouts_chat_windows_x64.zip windows \
+&& cd ..
