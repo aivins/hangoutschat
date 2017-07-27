@@ -1,8 +1,10 @@
 #!/bin/sh
 
+rm -rf dist
+rm -rf build
 mkdir -p dist
 
-nativefier --name 'New Hangouts Chat' chat.google.com --platform osx --arch x64 --icon hangoutschat.icns build/macos
+nativefier --name 'New Hangouts Chat' chat.google.com --platform osx --arch x64 --icon hangoutschat.icns build/macos \
 && cp build/macos/*.app dist/
 
 nativefier --name 'New Hangouts Chat' chat.google.com --platform linux --arch x64 --icon hangoutschat.png build/linux \
