@@ -5,7 +5,9 @@ rm -rf build
 mkdir -p dist
 
 nativefier --name 'New Hangouts Chat' chat.google.com --platform osx --arch x64 --icon hangoutschat.icns build/macos \
-&& cp build/macos/*.app dist/
+&& cd build/macos/New\ Hangouts\ Chat-darwin-x64/ \
+&& zip -r ../../../dist/hangouts_chat_macos_x64.zip mac New\ Hangouts\ Chat.app \
+&& cd ../../..
 
 nativefier --name 'New Hangouts Chat' chat.google.com --platform linux --arch x64 --icon hangoutschat.png build/linux \
 && cd build \
